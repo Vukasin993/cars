@@ -11,16 +11,19 @@ class CarsController extends Controller
     {
         
         $cars =Car::all();
-        
+
         return view('cars', compact('cars'));
-        /*
-        foreach ($cars as $car) {
-            $title = $car->title;
-            $producer = $car->producer;
-            $number_of_doors = $car->number_of_doors;
-        return view('cars', compact('title', 'producer', 'number_of_doors'));
+    }
+
+    public function show($id)
+    {
+        $car = Car::find($id);
+        if (!$car) {
+           echo 'page not found';
         }
-       
-     */
+        $title = $car->title;
+        $producer = $car->producer;
+        $number_of_doors = $car->number_of_doors;
+        return view('car', compact('title', 'producer', 'number_of_doors'));
     }
 }

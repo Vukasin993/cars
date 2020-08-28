@@ -6,14 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>cars</title>
 </head>
+<style>
+    a {text-decoration: none;}
+    ul li {list-style-type: none};
+</style>
 <body>
     <h1>cars</h1>
     
 @foreach ($cars as $car)
-<p>{{ $car->title }}</p>
-<p>
+<ul>
+    <li><a href="{{route('singleCar', ['id' => $car->id])}}">{{ $car->title }} <br>
     This is {{ $car->producer }} with {{ $car->number_of_doors }}
-    </p>
-    @endforeach
+    </a></li>
+
+</ul>
+@endforeach
+
 </body>
 </html>
