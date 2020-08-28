@@ -1,26 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>cars</title>
-</head>
-<style>
-    a {text-decoration: none;}
-    ul li {list-style-type: none};
-</style>
-<body>
-    <h1>cars</h1>
-    
+@extends('layouts.app')
+@section('title', 'Cars')
+
+@section('content')
+
+<h1>Cars</h1>
+<div class="row">
+    <div class="col-md-4">
+        <h5>Producer</h5>
+    </div>
+    <div class="col-md-4">
+    <h5>Name</h5>
+    </div>
+    <div class="col-md-4">
+    <h5>Number of doors</h5>
+    </div>
+</div>
+
 @foreach ($cars as $car)
-<ul>
-    <li><a href="{{route('singleCar', ['id' => $car->id])}}">{{ $car->title }} <br>
-    This is {{ $car->producer }} with {{ $car->number_of_doors }}
-    </a></li>
+<div class="row">
+    <div class="col-md-4">
+        {{$car->title}}
+    </div>
+    <div class="col-md-4">
+        {{$car->producer}}
+    </div>
+    <div class="col-md-4">
+        {{$car->number_of_doors}}
+    </div>
+</div>
 
-</ul>
+
 @endforeach
-
-</body>
-</html>
+@endsection
